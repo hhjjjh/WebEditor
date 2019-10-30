@@ -1,0 +1,276 @@
+
+var Event = {
+//    _cachePool : {}, 处理函数缓存池不要写在该对象内，因为原型链继承会让子类共享引用类型数据。
+    fire : function(type, msg) {
+        var fns;
+        if(!(fns = this._cachePool[type])) {
+            return;
+        }
+        var len = fns.length;
+        for(var i = 0, fn; i < len; i++) {
+            fn = fns[i];
+            fn.call(this, msg);
+        }
+    },
+    on : function(type, callback) {
+        if(!this._cachePool[type]) {
+            this._cachePool[type] = [];
+        }
+        this._cachePool[type].push(callback);
+    },
+    un : function(type, callback) {
+        var fns = this._cachePool[type];
+        if(fns) {
+            this._cachePool[type] = fns.filter(function(item){//注意兼容，一些低版本Array没有过滤函数
+                return item !== callback;
+            });
+        }
+    }
+};
+EditorProto = {
+	_config:['source','bold','striket','underline','superscript','subscript','fontsize','print'],
+    _create : function(id) {
+		var _this = this;
+        var editor = this._createEditor(id);
+        var tool = this._createTool();
+		var context = this._createContext(id);
+		var source = this._createSource(id);
+		for(i = 0;i<this._config.length;i++)
+		{
+			var item = this._config[i];
+			if(item=='source')
+			{
+				var button = this._createCommandBtn('source','HTML代码',function(e) {
+					if(this.className=='source')
+					{
+						this.className = 'source_open';
+						context.setAttribute('style','display: none;');
+						source.setAttribute('style','');
+						source.value = context.innerHTML;
+						Array.from(tool.children).map(it=>{it.disabled = true;});
+						this.disabled = false;
+						console.log(this);
+					}
+					else
+					{
+						this.className = 'source';
+						context.setAttribute('style',';');
+						source.setAttribute('style','display: none;');
+						context.innerHTML = source.value;
+						Array.from(tool.children).map(it=>{it.disabled = false;});
+					}
+				});
+				tool.appendChild(button);
+			}
+			if(item=='bold')
+			{
+				var button = this._createCommandBtn('bold','加粗',function(e) {
+					var status = document.execCommand('bold', false, null);
+					if(status)
+					{
+						if(this.className=='bold')
+						{
+							this.className = 'bold_open';
+						}
+						else
+						{
+							this.className = 'bold';
+						}
+					}
+				});
+				tool.appendChild(button);
+			}
+			if(item=='striket')
+			{
+				var button = this._createCommandBtn('striket','删除线',function(e) {
+					var status = document.execCommand('strikeThrough', false, null);
+					if(status)
+					{
+						if(this.className=='striket')
+						{
+							this.className = 'striket_open';
+						}
+						else
+						{
+							this.className = 'striket';
+						}
+					}
+				});
+				tool.appendChild(button);
+			}
+			if(item=='underline')
+			{
+				var button = this._createCommandBtn('underline','下划线',function(e) {
+					var status = document.execCommand('underline', false, null);
+					if(status)
+					{
+						if(this.className=='underline')
+						{
+							this.className = 'underline_open';
+						}
+						else
+						{
+							this.className = 'underline';
+						}
+					}
+				});
+				tool.appendChild(button);
+			}
+			if(item=='superscript')
+			{
+				var button = this._createCommandBtn('superscript','上标',function(e) {
+					var status = document.execCommand('superscript', false, null);
+					if(status)
+					{
+						if(this.className=='superscript')
+						{
+							this.className = 'superscript_open';
+						}
+						else
+						{
+							this.className = 'superscript';
+						}
+					}
+				});
+				tool.appendChild(button);
+			}
+			if(item=='subscript')
+			{
+				var button = this._createCommandBtn('subscript','下标',function(e) {
+					var status = document.execCommand('subscript', false, null);
+					if(status)
+					{
+						if(this.className=='subscript')
+						{
+							this.className = 'subscript_open';
+						}
+						else
+						{
+							this.className = 'subscript';
+						}
+					}
+				});
+				tool.appendChild(button);
+			}
+			if(item=='fontsize')
+			{
+				var button = this._createCommandBtn('fontsize','字号',function(e) {
+				});
+				var select = document.createElement("div");
+					var i = document.createElement("div");
+					i.setAttribute('unselectable','on');
+					i.setAttribute('style','height: 21px;');
+					i.innerHTML = '<span style="font-size:32px;" unselectable="on">32px</span>';
+					select.setAttribute('style','display: block; width: 150px; position: absolute; top: 35px; z-index: 811213;');
+					select.appendChild(i);
+					button.appendChild(select);
+				tool.appendChild(button);
+			}
+			if(item=='print')
+			{
+				var _this = this;
+				var button = this._createCommandBtn('print','打印',function(e) {
+					var status = document.execCommand('print', false, null);
+					/*
+					var newWindow=window.open("打印窗口","_blank");
+					newWindow.document.write(_this._getContext());
+					newWindow.document.close();
+					newWindow.print();
+					newWindow.close();*/
+				});
+				tool.appendChild(button);
+			}
+		}
+        
+        var foot = this._createFoot();
+        var printBtn = this._createPrintBtn();
+        this.printBtn = printBtn;
+        
+        foot.appendChild(printBtn);
+        //editor.insertBefore(tool, editor.firstChild);
+		editor.appendChild(tool);
+		editor.appendChild(context);
+		editor.appendChild(source);
+        editor.appendChild(foot);
+        return editor;
+    },
+    _createEditor : function(id) {
+        var editor = document.getElementById(id);
+        editor.className = "editor";
+        editor.contentEditable = false;
+        return editor;
+    },
+    _createTool : function() {
+        var tool = document.createElement("div");
+        tool.contentEditable = false;
+        tool.className = "editorTool";
+        return tool;
+    },
+	_createContext:function(id){
+		var context = document.createElement("div");
+		context.id = id+'_context'
+		this.contextId = context.id;
+        context.contentEditable = true;
+        context.className = "editorContext";
+        return context;
+	},
+	_createSource:function(id){
+		var source = document.createElement("textarea");
+		source.id = id+'_source'
+		this.sourceId = source.id;
+        source.className = "editorSource";
+		source.setAttribute('style','display: none;');
+        return source;
+	},
+    _createCommandBtn : function(name,title,_call) {
+        var button = document.createElement("button");
+        button.className = name;
+        button.title = title;
+        button.onclick = _call;
+        return button;
+    },
+    _createFoot : function() {
+        var tool = document.createElement("div");
+        tool.contentEditable = false;
+        tool.className = "editorFoot";
+        return tool;
+    },
+    _onbeforeSubmit : function(e, scope, callback) {
+        scope.fire('beforesubmit', e);
+    },
+    _onaftersubmit : function(e, scope, callback) {
+        scope.fire('aftersubmit', e);
+    },
+    _createPrintBtn : function() {
+        var button = document.createElement("input"),
+            that = this;
+        button.type="button"
+        button.value = "点击写出";
+        button.onmousedown = function(e) {
+            that._onbeforeSubmit(e, that);
+        };
+        button.onmouseup = function(e) {
+            that._onaftersubmit(e, that);
+        };
+        return button;
+    },
+	_getContext:function(){
+		var context = document.getElementById(this.contextId);
+		return context.innerHTML;
+	}
+};
+var copyIf = function(sub, sup, config) {
+    for(var p in sup) {
+        if(!sub[p]) {
+            sub[p] = sup[p];//拷贝
+        }
+    }
+}
+
+copyIf(EditorProto, Event);//将Event对象拷贝给EditorProto
+
+function Editor(id) {
+    this._cachePool = {};//事件处理函数的缓存池不能放到原型里
+    this._create(id);//new 操作构造器的时候，创建编辑器实例
+};
+Editor.prototype = EditorProto;//原型链继承

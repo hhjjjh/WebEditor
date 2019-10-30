@@ -1,0 +1,764 @@
+/*编辑器样式*/
+.editor {
+    border:1px solid #CDC1C5;
+	background:#FFFFFF;
+	position: relative;
+	width:100%;
+    height:100%;
+	left: 0;
+	top: 0;
+}
+.editorTool {
+	background:#CDC1C5;
+	text-align: left;
+	width:100%;
+	position: absolute;
+	top: 0px;
+}
+.editorContext {
+	width:100%;
+	overflow:auto;
+	text-align: left;
+	position: absolute;
+	top: 0px;
+    bottom: 0px;
+}
+.editorSource {
+	width:100%;
+	position: absolute;
+	top: 0px;
+    bottom: 0px;
+}
+.editorFoot {
+	background:#CDC1C5;
+	text-align: right;
+	width:100%;
+	position: absolute;
+	bottom: 0px;
+}
+.editorPluginsDiv {
+}
+.editorShield {
+    width:100%;
+    height:100%;
+	background:#CDC1C5;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:811212;
+    opacity:0.3;
+}
+
+/*下拉选框样式*/
+.select{
+	position: absolute; 
+	z-index: 811213;
+	background:#CDC1C5;
+}
+.selectitem {
+	background:#CDC1C5;
+	text-align:left;
+	height:100%;
+	width:100%;
+	border:1px solid #CDC1C5;
+}
+.selectitemOn {
+	background:#CDC1C5;
+	text-align:left;
+	height:100%;
+	width:100%;
+	border:1px solid #AEEEEE;
+	cursor: pointer;
+}
+.selectitem:hover {
+	background:#CDC1C5;
+	text-align:left;
+	height:100%;
+	width:100%;
+	border:1px solid #AEEEEE;
+	cursor: pointer;
+}
+
+/*分组下拉选项样式*/
+.groupselect{
+	position: absolute; 
+	z-index: 811213;
+	background:#CDC1C5;
+}
+.groupselectitem {
+	background:#CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	border:1px solid #CDC1C5;
+}
+.groupselectitemOn{
+	background:#CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	border:1px solid #AEEEEE;
+	cursor: pointer;
+}
+.groupselectitem:hover {
+	background:#CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	border:1px solid #AEEEEE;
+	cursor: pointer;
+}
+
+/*右键菜单样式*/
+.rightmenu{
+	position: absolute; 
+	z-index: 811213;
+	background:#CDC1C5;
+}
+.rightmenuitem {
+	background:#CDC1C5;
+	text-align:left;
+	height:100%;
+	width:100%;
+	border:1px solid #CDC1C5;
+}
+.rightmenuitem:hover {
+	background:#CDC1C5;
+	text-align:left;
+	height:100%;
+	width:100%;
+	border:1px solid #AEEEEE;
+	cursor: pointer;
+}
+
+/*设置窗体样式*/
+.window{
+	border:1px solid #CDC1C5;
+	background:#FFFFFF;
+	width:300px;
+	z-index: 811213;
+	float:left;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:50px;
+	margin:0 auto;
+}
+.windowToolbar{
+	background:#CDC1C5;
+	height:25px;
+}
+.windowContext{
+	overflow:auto;
+	height:200px;
+}
+.windowFoot{
+	background:#CDC1C5;
+	height:25px;
+}
+.windowCloseButton
+{	
+	height:25px;
+    width:25px;
+    border:1px solid #CDC1C5;
+    cursor:pointer;
+    overflow:hidden;
+	background:url(../ico/close.png) 0px 0px;
+    background-size:25px 25px;
+	float:right;
+}
+.windowSubmitButton
+{
+	float:right;
+}
+.windowGroupContext
+{
+	border:1px solid #CDC1C5;
+}
+
+/*工具栏命令按钮样式*/
+.editorTool button {
+    height:25px;
+    width:25px;
+    margin:1px;
+    border:1px solid #CDC1C5;
+    cursor:pointer;
+    overflow:hidden;
+}
+.editorTool button.source{
+    background:url(../ico/code-tags.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.source:hover {
+    background:url(../ico/code-tags.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.source_open {
+    background:url(../ico/code-tags.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.bold{
+    background:url(../ico/format-bold.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.bold:hover {
+    background:url(../ico/format-bold.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.bold_open {
+    background:url(../ico/format-bold.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.italic{
+    background:url(../ico/format-italic.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.italic:hover {
+    background:url(../ico/format-italic.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.italic_open {
+    background:url(../ico/format-italic.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.underline{
+    background:url(../ico/format-underline.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.underline:hover {
+    background:url(../ico/format-underline.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.underline_open {
+    background:url(../ico/format-underline.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.strikeThrough{
+    background:url(../ico/format-strikethrough.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.strikeThrough:hover {
+    background:url(../ico/format-strikethrough.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.strikeThrough_open {
+    background:url(../ico/format-strikethrough.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.superscript{
+    background:url(../ico/format-superscript.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.superscript:hover {
+    background:url(../ico/format-superscript.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.superscript_open {
+    background:url(../ico/format-superscript.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.subscript{
+    background:url(../ico/format-subscript.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.subscript:hover {
+    background:url(../ico/format-subscript.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.subscript_open {
+    background:url(../ico/format-subscript.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fontsize{
+    background:url(../ico/format-size.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.fontsize:hover {
+    background:url(../ico/format-size.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fontsize_open {
+    background:url(../ico/format-size.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fontsizestyle{
+    background:url(../ico/format-font-size-increase.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.fontsizestyle:hover {
+    background:url(../ico/format-font-size-increase.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fontsizestyle_open {
+    background:url(../ico/format-font-size-increase.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fontname{
+    background:url(../ico/format-font.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.fontname:hover {
+    background:url(../ico/format-font.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fontname_open {
+    background:url(../ico/format-font.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.align{
+    background:url(../ico/format-align-left.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.align:hover {
+    background:url(../ico/format-align-left.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.align_open {
+    background:url(../ico/format-align-left.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.forecolor{
+    background:url(../ico/format-color-text.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.forecolor:hover {
+    background:url(../ico/format-color-text.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.forecolor_open {
+    background:url(../ico/format-color-text.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.backcolor{
+    background:url(../ico/format-color-fill.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.backcolor:hover {
+    background:url(../ico/format-color-fill.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.backcolor_open {
+    background:url(../ico/format-color-fill.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.removeFormat{
+    background:url(../ico/format-clear.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.removeFormat:hover {
+    background:url(../ico/format-clear.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.indent{
+    background:url(../ico/format-indent-increase.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.indent:hover {
+    background:url(../ico/format-indent-increase.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.outdent{
+    background:url(../ico/format-indent-decrease.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.outdent:hover {
+    background:url(../ico/format-indent-decrease.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertOrderedList{
+    background:url(../ico/format-list-numbered.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertOrderedList:hover {
+    background:url(../ico/format-list-numbered.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertOrderedList_open {
+    background:url(../ico/format-list-numbered.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertUnorderedList{
+    background:url(../ico/format-list-bulleted.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertUnorderedList:hover {
+    background:url(../ico/format-list-bulleted.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertUnorderedList_open {
+    background:url(../ico/format-list-bulleted.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertImage{
+    background:url(../ico/image.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertImage:hover {
+    background:url(../ico/image.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertAudio{
+    background:url(../ico/audiobook.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertAudio:hover {
+    background:url(../ico/audiobook.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertVideo{
+    background:url(../ico/video.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertVideo:hover {
+    background:url(../ico/video.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertAnchor{
+    background:url(../ico/anchor.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertAnchor:hover {
+    background:url(../ico/anchor.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.createLink{
+    background:url(../ico/link.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.createLink:hover {
+    background:url(../ico/link.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.unlink{
+    background:url(../ico/link-off.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.unlink:hover {
+    background:url(../ico/link-off.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertHr{
+    background:url(../ico/format-line-style.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertHr:hover {
+    background:url(../ico/format-line-style.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.table{
+    background:url(../ico/table.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.table:hover {
+    background:url(../ico/table.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.insertHTML{
+    background:url(../ico/language-html5.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.insertHTML:hover {
+    background:url(../ico/language-html5.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.formatpagebreak{
+    background:url(../ico/format-page-break.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.formatpagebreak:hover {
+    background:url(../ico/format-page-break.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.print{
+    background:url(../ico/printer.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.print:hover {
+    background:url(../ico/printer.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fullscreen{
+    background:url(../ico/fullscreen.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.fullscreen:hover {
+    background:url(../ico/fullscreen.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.fullscreen_open {
+    background:url(../ico/fullscreen-exit.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+.editorTool button.test{
+    background:url(../ico/test-tube.png) 0px 0px;
+    background-size:25px 25px;
+}
+.editorTool button.test:hover {
+    background:url(../ico/test-tube.png) 0px -2px;
+    background-size:25px 25px;
+	border:1px solid #AEEEEE;
+}
+/*对齐下拉选项样式*/
+#select_align .justifyFull {
+	border:1px solid #CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	background:url(../ico/format-align-justify.png) 0px 0px;
+    background-size:25px 25px;
+}
+#select_align .justifyCenter {
+	border:1px solid #CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	background:url(../ico/format-align-center.png) 0px 0px;
+    background-size:25px 25px;
+}
+#select_align .justifyLeft {
+	border:1px solid #CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	background:url(../ico/format-align-left.png) 0px 0px;
+    background-size:25px 25px;
+}
+#select_align .justifyRight {
+	border:1px solid #CDC1C5;
+	width:25px;
+	height:25px;
+	margin:2px;
+	background:url(../ico/format-align-right.png) 0px 0px;
+    background-size:25px 25px;
+}
+
+/*表格分组下拉选项样式*/
+#groupselect_table .table {
+	width:25px;
+	height:25px;
+	background:url(../ico/table.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableRowPlusBefore {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-row-plus-before.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableRowPlusAfter {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-row-plus-after.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableRowRemove {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-row-remove.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableColumnPlusBefore {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-column-plus-before.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableColumnPlusAfter {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-column-plus-after.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableColumnRemove {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-column-remove.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableMergeCellsDown {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-merge-cells.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableMergeCellsRight {
+	width:25px;
+	height:25px;
+	background:url(../ico/call-merge.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableCallSplit {
+	width:25px;
+	height:25px;
+	background:url(../ico/call-split.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableBorder {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-border.png) 0px 0px;
+    background-size:25px 25px;
+}
+#groupselect_table .tableBorderNone {
+	width:25px;
+	height:25px;
+	background:url(../ico/border-none.png) 0px 0px;
+    background-size:25px 25px;
+}
+
+/*表格右键菜单样式*/
+#rightmenu_table .table {
+	width:25px;
+	height:25px;
+	background:url(../ico/table.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableRowPlusBefore {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-row-plus-before.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableRowPlusAfter {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-row-plus-after.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableRowRemove {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-row-remove.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableColumnPlusBefore {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-column-plus-before.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableColumnPlusAfter {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-column-plus-after.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableColumnRemove {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-column-remove.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableMergeCellsDown {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-merge-cells.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableMergeCellsRight {
+	width:25px;
+	height:25px;
+	background:url(../ico/call-merge.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableCallSplit {
+	width:25px;
+	height:25px;
+	background:url(../ico/call-split.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableBorder {
+	width:25px;
+	height:25px;
+	background:url(../ico/table-border.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableBorderNone {
+	width:25px;
+	height:25px;
+	background:url(../ico/border-none.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableAddCell {
+	width:25px;
+	height:25px;
+	background:url(../ico/plus-one.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableDelCell {
+	width:25px;
+	height:25px;
+	background:url(../ico/delete-sweep-outline.png) 0px 0px;
+    background-size:25px 25px;
+}
+#rightmenu_table .tableSelectColor {
+	width:25px;
+	height:25px;
+	background:url(../ico/select-color.png) 0px 0px;
+    background-size:25px 25px;
+}
+
+/*分页标识样式*/
+.pagebreak{
+    background:url(../ico/format-page-break.png) 0px 0px;
+    background-size:25px 25px;
+	width:25px;
+	height:25px;
+}
+
+/*锚点样式*/
+.anchor{
+	background:url(../ico/anchor.png) 0px 0px;
+    background-size:25px 25px;
+	background-repeat: no-repeat;
+	//display:block;
+	padding-left:25px;
+	//padding-top:25px;
+	height:25px;
+}
